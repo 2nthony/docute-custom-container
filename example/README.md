@@ -14,8 +14,16 @@ This is a warning
 This is a dangerous warning
 :::
 
-### You can also customize the title of the block
+### Customization title
+
+You can also customize the title of the block
 
 ::: danger STOP
 Danger zone, do not proceed
+:::
+
+### Customization Block
+
+::: greet
+Yello
 :::
