@@ -1,8 +1,8 @@
-import { re, endTag, endTagLen, parseContainer } from './utils'
+import { createRE, endTag, endTagLen, parseContainer } from './utils'
 
-export default function({ defaultTitle }) {
+export default function({ defaultTitle, registerContainers = [] }) {
   return function(text) {
-    const ContainerRE = new RegExp(re, 'g')
+    const ContainerRE = new RegExp(createRE(registerContainers), 'g')
     const containers = text.match(ContainerRE) || []
     let outputString = text
 
@@ -21,7 +21,10 @@ export default function({ defaultTitle }) {
 
       const container = text.slice(containerStart, containerEnd)
 
-      const { type, title, content } = parseContainer(container)
+      const { type, title, content } = parseContainer(
+        container,
+        registerContainers
+      )
 
       outputString = outputString.replace(
         container,

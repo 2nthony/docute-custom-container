@@ -1,9 +1,18 @@
+const defaultContainers = ['tip', 'warning', 'danger']
+
 export const endTag = ':::'
 export const endTagLen = endTag.length
-export const re = ':{3}\\s*?(tip|warning|danger)(.?[\\w]*)'
 
-export function parseContainer(container) {
-  const [tag, type, title] = container.match(new RegExp(re))
+export function createRE(containers = []) {
+  return `:{3}\\s*?(${containers
+    .concat(defaultContainers)
+    .join('|')})(.?[\\w]*)`
+}
+
+export function parseContainer(container, registerContainers) {
+  const [tag, type, title] = container.match(
+    new RegExp(createRE(registerContainers))
+  )
   const content = container.slice(tag.length, container.length - endTagLen)
 
   return {
