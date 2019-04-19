@@ -1,0 +1,48 @@
+{
+  "name": "docute-custom-container",
+  "description": "🔍Docute plugin vuepress custom container",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "evillt/docute-custom-container"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "evillt <ijoec123@gmail.com> (https://evila.me)",
+  "main": "dist/index.min.js",
+  "module": "src/index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build && npm run build:min",
+    "build": "bili --format umd",
+    "build:min": "bili --format umd-min --plugins.postcss.minimize",
+    "watch": "bili --format umd -w"
+  },
+  "devDependencies": {
+    "bili": "^4.7.3",
+    "husky": "^1.0.0-rc.13",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{ts,js,json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "keywords": [
+    "vue",
+    "docute",
+    "vuepress",
+    "document",
+    "plugin"
+  ]
+}
