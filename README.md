@@ -86,6 +86,41 @@ new Docute({
 
 Show the default title when you unspecified customize title.
 
+### registerContainers
+
+- Type: `Array<string>`
+- Default: `[]`
+
+Register others custom block.
+
+```html
+<style>
+  .greet {
+    color: #2a7;
+    background-color: #58a;
+  }
+</style>
+
+<script>
+  new Docute({
+    // ...
+    plugins: [
+      docuteCustomContainer({
+        registerContainers: ['greet']
+      })
+    ]
+  })
+</script>
+```
+
+Then you can use the new container in markdown file
+
+```markdown
+::: greet
+greeter!
+:::
+```
+
 ## Contributing
 
 1. Fork it!
