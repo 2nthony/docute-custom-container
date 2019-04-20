@@ -1,8 +1,8 @@
 import { createRE, endTag, endTagLen, parseContainer } from './utils'
 
-export default function({ defaultTitle, registerContainers = [] }) {
+export default function({ defaultTitle, registerContainer = [] }) {
   return function(text) {
-    const ContainerRE = new RegExp(createRE(registerContainers), 'g')
+    const ContainerRE = new RegExp(createRE(registerContainer), 'g')
     const containers = text.match(ContainerRE) || []
     let outputString = text
 
@@ -23,7 +23,7 @@ export default function({ defaultTitle, registerContainers = [] }) {
 
       const { type, title, content } = parseContainer(
         container,
-        registerContainers
+        registerContainer
       )
 
       outputString = outputString.replace(

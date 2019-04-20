@@ -9,9 +9,9 @@ export function createRE(containers = []) {
     .join('|')})(.?[\\w]*)`
 }
 
-export function parseContainer(container, registerContainers) {
+export function parseContainer(container, registerContainer) {
   const [tag, type, title] = container.match(
-    new RegExp(createRE(registerContainers))
+    new RegExp(createRE(registerContainer))
   )
   const content = container.slice(tag.length, container.length - endTagLen)
 
