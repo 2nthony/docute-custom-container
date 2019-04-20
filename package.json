@@ -1,7 +1,7 @@
 {
   "name": "docute-custom-container",
   "description": "🔍Docute plugin vuepress custom container",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",
