@@ -24,6 +24,14 @@ Danger zone, do not proceed
 
 ### Customization Block
 
+With style `.greet`
+
 ::: greet
-Yello
+greeter!
+:::
+
+Without style
+
+::: container
+non-styled
 :::

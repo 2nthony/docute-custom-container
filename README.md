@@ -86,7 +86,7 @@ new Docute({
 
 Show the default title when you unspecified customize title.
 
-### registerContainers
+### registerContainer
 
 - Type: `Array<string>`
 - Default: `[]`
@@ -106,7 +106,7 @@ Register others custom block.
     // ...
     plugins: [
       docuteCustomContainer({
-        registerContainers: ['greet']
+        registerContainer: ['greet']
       })
     ]
   })
